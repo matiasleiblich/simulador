@@ -782,10 +782,11 @@ const fmt=n=>'USD '+n.toLocaleString('es-AR');
 function mS4(){/* contact form — no value shown */}
 
 function mS5(){
-  const tl2={depto:'departamento',ph:'PH'}[D.tipo]||'propiedad';
+  const tl2={depto:'departamento'}[D.tipo]||'propiedad';
   document.getElementById('rtipo2').textContent=tl2;
-  document.getElementById('rb4').textContent=D.sub||D.barrio||'CABA';
-  document.getElementById('rb3').textContent=D.sub||D.barrio||'CABA';
+  document.getElementById('rb4').textContent=D.barrio||'CABA';
+  const dirLabel=D.dir&&D.dir!=='—'?D.dir:D.barrio||'CABA';
+  document.getElementById('rb3').textContent=dirLabel;
   document.getElementById('rci').textContent=fmt(D.ci);
   document.getElementById('rpub').textContent=fmt(D.pub);
   document.getElementById('rp').textContent=fmt(D.pr);
