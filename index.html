@@ -469,7 +469,7 @@ h1,h2,h3,.ct,.at{font-family:'DM Sans',sans-serif}
         <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:12px 8px"><div style="font-family:'DM Sans',sans-serif;font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;line-height:1.4">Precio de<br>publicación</div><div style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:800;color:rgba(255,255,255,.65)" id="rpub">—</div></div>
         <div style="background:rgba(201,168,76,.18);border:1px solid rgba(201,168,76,.35);border-radius:9px;padding:12px 8px"><div style="font-family:'DM Sans',sans-serif;font-size:9px;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;line-height:1.4">Precio de<br>cierre estimado</div><div style="font-family:'DM Sans',sans-serif;font-size:18px;font-weight:800;color:var(--gl)" id="rci">—</div></div>
       </div>
-      <div style="font-size:11px;color:rgba(255,255,255,.3);line-height:1.6;max-width:400px;margin:0 auto">⚠️ Valores orientativos basados en precios de cierre por barrio. No contemplan variaciones dentro del mismo barrio ni características particulares del inmueble.</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.3);line-height:1.6;max-width:400px;margin:0 auto">⚠️ Valores orientativos basados en precios de cierre por barrio y las características declaradas del inmueble. No contempla zonas dentro del mismo barrio.</div>
     </div>
     <div class="card">
       <div style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px">¿Qué sigue?</div>
@@ -516,7 +516,7 @@ const GS='https://script.google.com/macros/s/AKfycbwyRaNH-SpCHjMlr_3JGX6EC-cAnoA
 // cf=cochera fija, cm=cochera móvil, bv=baulera (USD)
 // ============================================================
 let BR=[];
-fetch('https://matiasleiblich.com/tasador/barrios.json')
+fetch('https://matiasleiblich.com/simulador/barrios.json')
   .then(r=>r.json())
   .then(data=>{
     BR=data;
