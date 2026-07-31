@@ -103,7 +103,7 @@ h1,h2,h3,.ct,.at{font-family:'DM Sans',sans-serif}
 </head>
 <body>
 
-<nav class="nav"><div class="ni"><img src="img/logo.png" alt="Matías Leiblich" style="height:30px;display:block"><div class="ntag">Simulador de Tasaciones</div></div></nav>
+<nav class="nav"><div class="ni"><img src="IMG/logo.png" alt="Matías Leiblich" style="height:30px;display:block"><div class="ntag">Simulador de Tasaciones</div></div></nav>
 
 <div class="hero">
   <span class="ey">Simulador de Tasación</span>
@@ -868,8 +868,8 @@ function env(){
   D.nom=n;D.eml=e;D.wpp=w;
   const btn=document.getElementById('benv');btn.disabled=true;btn.textContent='Enviando...';
   const p=mkP(n,e,w);
-  emailjs.send('Tasador','template_s5jl3g9',p).catch(err=>console.warn('EmailJS t1:',err));
-  emailjs.send('Tasador','template_8asr79e',p).catch(err=>console.warn('EmailJS t2:',err));
+  emailjs.send('service_9y4bg4h','template_s5jl3g9',p).catch(err=>console.warn('EmailJS t1:',err));
+  emailjs.send('service_9y4bg4h','template_8asr79e',p).catch(err=>console.warn('EmailJS t2:',err));
   gsPost(p);
   setTimeout(()=>gS(5),600);
 }
@@ -884,7 +884,7 @@ function envEsp(t){
   const msg=encodeURIComponent('Hola! Me contacto porque quiero tasar mi '+label+'.\n\nNombre: '+nom+'\nDirección: '+dir+(t==='lote'?'\nSuperficie aprox.: '+sup+' m²':'')+'\nMi WhatsApp: '+w);
   const wa=document.getElementById('wa-'+t);wa.href='https://wa.me/5491161737552?text='+msg;
   const p={nombre:nom,email:'—',wpp:w,tipo:t==='casa'?'Casa':t==='gba'?'Depto GBA':'Lote/Terreno',barrio:'—',sub:'—',direccion:dir,m2cub:'—',m2semi:'—',m2desc:'—',tiene_balcon:'—',ambientes:'—',piso:'—',pisos_edificio:'—',orientacion:'—',disposicion:'—',estado_unidad:'—',antiguedad:'—',cochera:'—',baulera:'—',expensas:'—',amenities:'—',vecinos:'—',precio_cierre:'(requiere visita)',precio_pub:'(requiere visita)',precio_prueba:'(requiere visita)'};
-  emailjs.send('Tasador','template_s5jl3g9',p).catch(e=>console.warn(e));
+  emailjs.send('service_9y4bg4h','template_s5jl3g9',p).catch(e=>console.warn(e));
   gsPost(p);
   wa.click();
 }
