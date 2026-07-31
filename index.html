@@ -607,6 +607,8 @@ function sel(btn,f){
   const el=document.getElementById(f);if(el)el.value=btn.dataset.v;
   D[f]=btn.dataset.v;
   const p=btn.closest('.fi');if(p)p.classList.remove('er');
+  // Recalcular D.u si cambió ambientes y tenemos entry
+  if(f==='amb'&&D.entry) D.u=usdPorAmb(D.entry,D.amb);
 }
 
 function selB(btn,v){
@@ -698,6 +700,8 @@ function cascada(pcts, tope) {
 }
 
 function calc(){
+  // Recalcular u desde entry en el momento del cálculo
+  if(D.entry&&D.amb) D.u=usdPorAmb(D.entry,D.amb);
   const u=D.u||2000;
   const m2c=D.m2c||0,m2s=D.m2s||0,m2d=D.m2d||0;
 
@@ -788,7 +792,8 @@ function mS5(){
   document.getElementById('rb4').textContent=D.barrio||'CABA';
   const dirLabel=D.dir&&D.dir!=='—'?D.dir:D.barrio||'CABA';
   if(document.getElementById('rb3'))document.getElementById('rb3').textContent=dirLabel;
-  document.getElementById('rci').textContent=fmt(D.ci);
+  document.getElementById('rmin').textContent=D.ci?fmt(Math.round(D.ci*0.95/1000)*1000):'—';
+  document.getElementById('rmax').textContent=D.ci?fmt(Math.round(D.ci*1.10/1000)*1000):'—';
       const nm=D.nom?(D.nom.split(' ')[0]):'';
   const tl={depto:'departamento',ph:'PH'}[D.tipo]||'propiedad';
   const msg=encodeURIComponent(
