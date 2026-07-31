@@ -100,6 +100,9 @@ h1,h2,h3,.ct,.at{font-family:'DM Sans',sans-serif}
 @media(max-width:480px){.hero{padding:40px 16px 36px}.main{padding:20px 14px 52px}.card{padding:20px 18px}.r2{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.bp,.bg,.bwa,.btn-inf,.mo,.tb{transition:none;transform:none!important}}
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MC47CJF0VL"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MC47CJF0VL');</script>
 </head>
 <body>
 
@@ -806,7 +809,7 @@ function mS5(){
 }
 
 function mkP(n,e,w){
-  return{nombre:n,email:e,wpp:w,
+  return{nombre:n,nombre_corto:n.trim().split(/\s+/)[0],email:e,wpp:w,
     tipo:{depto:'Departamento',ph:'PH'}[D.tipo]||D.tipo,
     barrio:D.barrio||'—',sub:'—',direccion:D.dir||'—',
     m2cub:D.m2c,m2semi:D.m2s,m2desc:D.m2d,
@@ -823,8 +826,8 @@ function mkP(n,e,w){
     amenities:D.am.length?D.am.join(', '):'Ninguno',
     vecinos:D.vec.length?D.vec.join(', '):'Ninguno',
     precio_cierre:D.ci?fmt(D.ci):'—',
-    precio_pub:D.pub?fmt(D.pub):'—',
-    precio_prueba:D.pr?fmt(D.pr):'—',
+    precio_min:D.ci?fmt(Math.round(D.ci*0.95/1000)*1000):'—',
+    precio_max:D.ci?fmt(Math.round(D.ci*1.10/1000)*1000):'—',
     link_informe:mkInformeURL(n,e,w)};
 }
 
